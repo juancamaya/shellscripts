@@ -1,7 +1,5 @@
 #! /bin/bash
-#IES Campanillas. Desarrollo de Aplicaciones Web
-# Soluciones a los ejercicios de Shell Scripts
-#Autor: Juan Carlos Amaya
+#Ejercicio 3 Shell que pide imprime por pantalla hasta el cinco usando un bucle for
 clear
 
 function ejer1(){
@@ -97,23 +95,53 @@ echo " El nombre de usuario es" `whoami`", el directorio actual es " `pwd` ", y 
 ###########################################################################################
 
 function ejer7(){
-
-if [ $# -eq 0 ]; then
-echo "Uso del ejercio: soluciones.sh /ruta  nombre_de_fichero.sh"
+#Primero controlamos que los parámetros sean correctos para que funcione
+if [ $# -lt 1 ] ; then
+  echo "Uso del ejercio: soluciones.sh /ruta/nombre_de_fichero.sh"
 else
- if [ -e  ];then
-	echo
+  if [ -e $1 ]; then
+	echo "El fichero existe";
+  else 
+	echo "El fichero no existe";
+  fi 
+  
 fi
 }
 
+#############################################################################
 
+#Acepta opciones desde la línea de comandos y las pasamos a la función desde la llamada a la función.
+function ejer8(){
+if [ $# -lt 1 ] ; then
+  echo "Uso del ejercio: soluciones.sh -parametros [-c -d -v ]"
+else
+  if [ $1 == "-c" ]; then
+	clear;
+  elif [ $1 == "-d" ]; then
+	ls -la;
+  elif [ $1 == "-v" ]; then
+	nano fichero.txt;
+  else
+	echo "Opción no válida. ";
+  fi
+fi
+}
+###############################################################################################
+############################ Ejercicio 9 ######################################################
+function ejer9(){
+echo -n "Introduce /ruta/nombre_archivo";
+read archivo;
+echo -n "/ruta/nombre_archivo_nuevo"
+read nombre;
+if [ -f $archivo ]; then
+  mv $archivo $nombre;
+else
+  echo "El archivo no existe, no se hará nada.";
+fi
+}
 
-
-
-
-
-
-
+###############################################################################################
+############################ Ejercicio 10 #####################################################
 
 #Estructura case que maneja el menú
 
@@ -127,8 +155,12 @@ case  $opcion in
 4) ejer4;;
 5) ejer5;;
 6) ejer6;;
-7) param=$1; 
-   ejer7 $param;;
-*)  echo "Opcion inválida";;
+7) ruta=$1;
+   ejer7 $ruta ;;
+8) opcion=$1;
+   ejer8 $opcion;;
+9) ejer9;;
+10 ejer10;;
+*) echo "Opcion inválida";;
 esac
 
