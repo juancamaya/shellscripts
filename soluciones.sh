@@ -1,5 +1,7 @@
 #! /bin/bash
-#Ejercicio 3 Shell que pide imprime por pantalla hasta el cinco usando un bucle for
+#IES Campanillas. Desarrollo de Aplicaciones Web
+# Soluciones a los ejercicios de Shell Scripts
+#Autor: Juan Carlos Amaya
 clear
 
 function ejer1(){
