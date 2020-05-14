@@ -170,3 +170,43 @@ case  $opcion in
 *) echo "Opcion inválida";;
 esac
 
+
+###############################################################################################
+############################ Ejercicio 11 #####################################################
+
+#comprueba si existe el directorio /home/scripts
+
+
+if [ -e /$HOME/scripts ]; then
+
+echo "el directorio existe";
+else
+echo "El directorio no existe y será creado";
+echo "Creando el directorio";
+sleep 2000;
+mkdir $HOME/scripts;
+echo "Directorio creado";
+
+fi
+
+###############################################################################################
+############################ Ejercicio 12 #####################################################
+#!/bin/bash
+
+#Programa que verifica que se recibe un solo argumento por línea de comandos.
+
+# $0 representa el nombre del script
+# $1 representa el primer argumento
+# $2 representa el segundo argumento
+#  y así sucesivamente
+# $# representa el número de argumentos después del nombre.
+# $* contiene todos los argumentos escritos guardados en una variable
+
+if [ $# -eq 1 ]; then
+echo "El número de argumentos es igual a uno";
+else
+echo "El número de argumentos es distinto a uno"
+echo "Has escrito $# argumentos";
+
+fi
+
